@@ -44,7 +44,7 @@ public class DriverMatchingService {
             Vehicle vehicle = driver.getVehicle();
 
             if(!eligibilityService.isEligible(vehicle, rideType)){
-                return null;
+                continue;
             }
 
             if(driver.tryBooking()){

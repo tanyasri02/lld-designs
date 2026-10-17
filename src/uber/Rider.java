@@ -5,9 +5,10 @@ public class Rider {
     private String name;
     private Location location;
 
-    public Rider(int id, String name){
+    public Rider(int id, String name, Location location){
         this.id = id;
         this.name = name;
+        this.location = location;
     }
 
     public int getId(){

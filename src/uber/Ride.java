@@ -41,9 +41,19 @@ public class Ride {
         return driver;
     }
 
+
     public void assignDriver(Driver driver) {
+        if (driver == null) {
+            throw new IllegalArgumentException("Driver cannot be null");
+        }
+
+        if (this.status != RideStatus.REQUESTED) {
+            throw new IllegalStateException("Driver can only be assigned to a requested ride");
+        }
+
         this.driver = driver;
         this.status = RideStatus.DRIVER_ASSIGNED;
     }
+
 }
 
