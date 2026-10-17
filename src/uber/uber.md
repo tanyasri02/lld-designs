@@ -21,4 +21,13 @@
 - Geohashing: Converts latitude/longitude into geographic cells.
 - Search the current and neighboring cells, then filter candidates by actual distance, availability, and vehicle type.
 
+### 4. Haversine formula to calculate the distance of rider to driver
+
+- double a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2)
+        + Math.cos(lat1) * Math.cos(lat2)
+        * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
+
+- double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+- double distance = 6371.0 * c;
+
 - <img width="961" height="560" alt="image" src="https://github.com/user-attachments/assets/6b990d08-c253-48f6-85cf-5f2048277084" />
