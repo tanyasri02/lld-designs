@@ -44,3 +44,8 @@
 - Seat availability is show-specific.
 - Lock all selected seats or none.
 - Confirm only after successful payment and valid reservation.
+
+### UML
+
+<img width="1127" height="739" alt="image" src="https://github.com/user-attachments/assets/a5d9034e-017f-478f-bfec-103714158845" />
+
