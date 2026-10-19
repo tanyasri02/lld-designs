@@ -17,8 +17,7 @@ public class ExpenseService {
         }
 
         if (expense.getAmount() <= 0) {
-            throw new IllegalArgumentException(
-                    "Expense amount must be positive");
+            throw new IllegalArgumentException("Expense amount must be positive");
         }
 
         if (participants == null || participants.isEmpty()) {
