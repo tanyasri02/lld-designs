@@ -22,7 +22,6 @@ public class Main {
         BookingService bookingService = new BookingService(lockProvider, paymentService);
 
         PaymentMethod paymentMethod = new UPIPayment();
-
         Booking booking = bookingService.createBooking(1, 101, user, show, List.of(showSeat), new BigDecimal("250.00"), paymentMethod);
 
         System.out.println("Booking ID: " + booking.getId());
