@@ -3,15 +3,9 @@ package splitwise;
 import java.util.*;
 
 public class DebtSimplifier {
-    public List<Settlement> simplifyDebts(List<Expense> expenses, List<ExpenseSplit> splits) {
+    public List<Settlement> simplifyDebts(List<ExpenseSplit> splits) {
         Map<User, Map<User, Double>> graph = new HashMap<>();
         Map<User, Double> balances = new HashMap<>();
-
-        for (Expense expense : expenses) {
-            User payer = expense.getPaidByUser();
-            graph.putIfAbsent(payer, new HashMap<>());
-            balances.putIfAbsent(payer, 0.0);
-        }
 
         for (ExpenseSplit split : splits) {
             User debtor = split.getUser();
@@ -20,9 +14,14 @@ public class DebtSimplifier {
 
             graph.putIfAbsent(debtor, new HashMap<>());
             graph.putIfAbsent(creditor, new HashMap<>());
-            graph.get(debtor).put(creditor, graph.get(debtor).getOrDefault(creditor, 0.0) + amount);
-            balances.put(debtor, balances.getOrDefault(debtor, 0.0) - amount);
-            balances.put(creditor, balances.getOrDefault(creditor, 0.0) + amount);
+            balances.putIfAbsent(debtor, 0.0);
+            balances.putIfAbsent(creditor, 0.0);
+
+            if (!debtor.equals(creditor)) {
+                graph.get(debtor).put(creditor, graph.get(debtor).getOrDefault(creditor, 0.0) + amount);
+                balances.put(debtor, balances.get(debtor) - amount);
+                balances.put(creditor, balances.get(creditor) + amount);
+            }
         }
 
         Queue<Map.Entry<User, Double>> debtors = new LinkedList<>();
