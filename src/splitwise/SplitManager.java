@@ -18,7 +18,7 @@ public class SplitManager {
 
         List<ExpenseSplit> splits = new ArrayList<>();
         BigDecimal allocatedAmount = BigDecimal.ZERO;
-
+        // add whatever is pending to last user
         for (int i = 0; i < participants.size(); i++) {
             BigDecimal share;
 

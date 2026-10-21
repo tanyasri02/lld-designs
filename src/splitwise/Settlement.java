@@ -36,6 +36,6 @@ public class Settlement {
     }
 
     public void setStatus(SettlementStatus settlementStatus) {
-        this.status = status;
+        this.status = settlementStatus;
     }
 }
