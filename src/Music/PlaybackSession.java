@@ -3,7 +3,7 @@ package Music;
 import java.util.List;
 
 public class PlaybackSession {
-    private final String userId;
+    private final Integer userId;
     private final PlaybackQueue queue;
     private final MusicPlayer player;
     private final TrackRepository trackRepository;
@@ -11,7 +11,7 @@ public class PlaybackSession {
     private PlaybackState state = PlaybackState.STOPPED;
     private int positionSeconds = 0;
 
-    public PlaybackSession(String userId, PlaybackQueue queue, MusicPlayer player, TrackRepository trackRepository) {
+    public PlaybackSession(Integer userId, PlaybackQueue queue, MusicPlayer player, TrackRepository trackRepository) {
         this.userId = userId;
         this.queue = queue;
         this.player = player;
@@ -119,7 +119,7 @@ public class PlaybackSession {
         return state;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 }

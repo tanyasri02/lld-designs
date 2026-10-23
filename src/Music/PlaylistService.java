@@ -4,9 +4,7 @@ public class PlaylistService {
     private final PlaylistRepository playlistRepository;
     private final TrackRepository trackRepository;
 
-    public PlaylistService(
-            PlaylistRepository playlistRepository,
-            TrackRepository trackRepository) {
+    public PlaylistService(PlaylistRepository playlistRepository, TrackRepository trackRepository) {
         this.playlistRepository = playlistRepository;
         this.trackRepository = trackRepository;
     }

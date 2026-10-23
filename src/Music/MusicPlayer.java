@@ -1,7 +1,7 @@
 package Music;
 
 // todo : ask shiwam
-public class MusicPlayer implements AudioOutput {
+public class MusicPlayer {
     private final AudioOutput output;
 
     public MusicPlayer(AudioOutput output) {
