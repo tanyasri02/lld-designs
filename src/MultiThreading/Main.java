@@ -225,7 +225,7 @@ public class Main {
 
     // Executor Services
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(2); // This define the number of threads
         // shown above tooo.
 
         executorService.execute(() -> {
