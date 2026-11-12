@@ -45,9 +45,9 @@ public class Main {
     } */
 
 
-    // Syncronized
+    // Synchronized
 
-    public static void main(String[] args) throws InterruptedException {
+    /* public static void main(String[] args) throws InterruptedException {
         Counter c1 = new Counter();
 
         Thread t1 = new Thread(() ->{
@@ -74,7 +74,43 @@ public class Main {
 
         System.out.println(t2.getState());
 
+    }*/
+
+
+    //  Synchronized
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+
+        Thread t1 = new Thread(() -> {
+            for(int i=1;i<=10;i++){
+                try {
+                    counter.increment();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+
+        Thread t2 = new Thread(() -> {
+            for(int i=1;i<=10;i++){
+                try {
+                    counter.increment();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+        System.out.println(counter.count);
     }
+
 }
 
 /*
