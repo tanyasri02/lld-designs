@@ -224,7 +224,7 @@ public class Main {
     }*/
 
     // Executor Services
-    /*public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         // shown above tooo.
 
@@ -232,8 +232,17 @@ public class Main {
             System.out.println("Task 1 is executing " + Thread.currentThread().getName());
         });
 
+        executorService.execute(() -> {
+            System.out.println("Task 2 is executing " + Thread.currentThread().getName());
+        });
+
+        executorService.execute(() -> {
+            System.out.println("Task 3 is executing " + Thread.currentThread().getName());
+        });
+
+
         System.out.println("Main is executing " + Thread.currentThread().getName());
-    }*/
+    }
 
 }
 
