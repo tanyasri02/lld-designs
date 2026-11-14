@@ -224,7 +224,7 @@ public class Main {
     }*/
 
     // Executor Services
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    /*public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2); // This define the number of threads
         // shown above tooo.
 
@@ -242,7 +242,26 @@ public class Main {
 
 
         System.out.println("Main is executing " + Thread.currentThread().getName());
+    }*/
+
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("Fetching Mutual Funds balance");
+            return 50000;
+        });
+
+        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("Fetching FD balance");
+            return 100000;
+        });
+        // solving second limitation of future
+        future1.thenCombine(future2, (Integer a, Integer b) -> a + b)
+                .thenAccept((Integer result) ->
+                        System.out.println("Total Balance: " + result)
+                );
     }
+
 
 }
 
